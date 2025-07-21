@@ -8,6 +8,7 @@ import { Key } from './key';
 
 function Login() {
   const data = useSelector((state) => state.auth.payload);
+  const loading = useSelector((state) => state.auth.loading);
   const dispatch = useDispatch();
 
   const handleClick = () => {
@@ -19,6 +20,7 @@ function Login() {
         Login
         <small>Faca login para prosseguir</small>
       </Title>
+      {loading ? <Paragraph>Carregando...</Paragraph> : null}
       <Key data={data} />
       <button type="button" onClick={handleClick}>
         Enviar
